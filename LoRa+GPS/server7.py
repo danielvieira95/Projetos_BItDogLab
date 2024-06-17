@@ -18,7 +18,7 @@ CLIENT_ADDRESS = 1 # endereço cliente
 SERVER_ADDRESS =2 # endereço server
 #função para receber os dados da comunicação LoRa
 #arquivo para salvar as informações
-file_path = 'data3.txt'
+file_path = 'data4.txt'
 def on_recv(payload):
     print("From: ",payload.header_from)
     print("Received: ",payload.message)
@@ -34,9 +34,10 @@ def on_recv(payload):
 
 
     oled.fill(0) # limpa o oled
-    oled.text(f"From: {payload.header_from}",0,10,1)
-    oled.text(f"Lat: {latitude}", 0, 20, 1)
-    oled.text(f"Lon: {longitude}", 0, 30, 1)
+    
+    oled.text(f"Lat: {latitude}", 0, 10, 1)
+    oled.text(f"Lon: {longitude}", 0, 20, 1)
+    oled.text(f"Alt: {str(altitude)}",0,30,1)
     oled.text(f"RSSI: {payload.rssi}",0,40,1)
     oled.text(f"SNR: {payload.snr}",0,50,1)
     oled.show()
@@ -69,3 +70,4 @@ oled.show()
 
 while True:
     sleep(0.1)
+
