@@ -73,8 +73,8 @@ while True:
     print('Lat: ' + latitude)
     data_gps=(f"{latitude},{longitude}")
     oled.show()
-    msg(data_gps)
-    sleep(3)
+    #msg(data_gps)
+    #sleep(3)
 
     if botao_a.value() == 0:
         oled.fill(0)
